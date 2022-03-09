@@ -19,7 +19,14 @@ namespace PercorreString
             inp = Console.ReadLine();
             excluded = char.Parse(inp);
 
-            Console.WriteLine($"User entered: {text}; {excluded}");
+            // print each character from text if it's not the excluded char
+            foreach (char c in text)
+            {
+                if (c != excluded) {
+                    Console.Write(c);
+                }
+            }
+            Console.WriteLine("");
         }
     }
 }
