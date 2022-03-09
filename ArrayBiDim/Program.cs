@@ -8,6 +8,7 @@ namespace ArrayBiDim
         {
             int lines, columns;
             float[,] matrix;
+            float[] averages;
 
             string inp;
 
@@ -32,6 +33,27 @@ namespace ArrayBiDim
                     inp = Console.ReadLine();
                     matrix[i, j] = float.Parse(inp);
                 }
+            }
+
+            // find average for each line
+            averages = new float[lines];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                float sum = 0;
+
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    sum += matrix[i, j];
+                }
+
+                averages[i] = sum / matrix.GetLength(1);
+            }
+
+            // print results
+            Console.WriteLine("Averages:");
+            for (int i = 0; i < averages.Length; i++)
+            {
+                Console.WriteLine($"  Line {i}: {averages[i]}");
             }
         }
     }
