@@ -9,6 +9,7 @@ namespace ArrayBiDim
             int lines, columns;
             float[,] matrix;
             float[] averages;
+            float sumOfAverages = 0;
 
             string inp;
 
@@ -49,12 +50,19 @@ namespace ArrayBiDim
                 averages[i] = sum / matrix.GetLength(1);
             }
 
+            // get sum of averages
+            foreach (float a in averages)
+            {
+                sumOfAverages += a;
+            }
+
             // print results
             Console.WriteLine("Averages:");
             for (int i = 0; i < averages.Length; i++)
             {
                 Console.WriteLine($"  Line {i}: {averages[i]}");
             }
+            Console.WriteLine($"Sum of averages: {sumOfAverages}");
         }
     }
 }
