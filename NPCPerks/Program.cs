@@ -54,6 +54,12 @@ namespace NPCPerks
                     }
                 }
             }
+
+            // show perks for each NPC
+            for (int i = 0; i < npcPerks.Length; i++)
+            {
+                Console.WriteLine($"NPC {i}: {npcPerks[i]}");
+            }
         }
     }
 }
