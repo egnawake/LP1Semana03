@@ -59,6 +59,12 @@ namespace NPCPerks
             for (int i = 0; i < npcPerks.Length; i++)
             {
                 Console.WriteLine($"NPC {i}: {npcPerks[i]}");
+
+                // if NPC has combat and luck, show special message
+                Perk invincible = Perk.Combat | Perk.Luck;
+                if ((npcPerks[i] & invincible) == invincible) {
+                    Console.WriteLine("You shall win all fights!");
+                }
             }
         }
     }
