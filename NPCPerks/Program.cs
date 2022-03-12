@@ -19,14 +19,41 @@ namespace NPCPerks
             npcPerks = new Perk[totalNpcs];
 
             // display possible perks
-            Console.WriteLine("Perks:");
-            Console.WriteLine("  (1) Stealth");
-            Console.WriteLine("  (2) Combat");
-            Console.WriteLine("  (3) Lockpick");
-            Console.WriteLine("  (4) Luck");
-            Console.WriteLine("Choose perks for each NPC (enter 0 to finish)");
+            Console.WriteLine("Perks: stealth, combat, lockpick, luck");
+            Console.WriteLine("Choose perks for each NPC (enter \"done\" to finish)");
 
-            Console.WriteLine($"{Perk.Luck | Perk.Stealth}");
+            // for each NPC, ask for perks
+            for (int i = 0; i < totalNpcs; i++)
+            {
+                Console.WriteLine($"NPC {i}");
+
+                inp = "";
+                while (inp != "done")
+                {
+                    inp = Console.ReadLine();
+
+                    switch (inp)
+                    {
+                        case "done":
+                            break;
+                        case "stealth":
+                            npcPerks[i] = npcPerks[i] | Perk.Stealth;
+                            break;
+                        case "combat":
+                            npcPerks[i] = npcPerks[i] | Perk.Combat;
+                            break;
+                        case "lockpick":
+                            npcPerks[i] = npcPerks[i] | Perk.Lockpick;
+                            break;
+                        case "luck":
+                            npcPerks[i] = npcPerks[i] | Perk.Luck;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid perk, try again");
+                            break;
+                    }
+                }
+            }
         }
     }
 }
